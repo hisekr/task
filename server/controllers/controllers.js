@@ -5,12 +5,13 @@ const { Op } = require("sequelize");
 const fs = require("fs");
 const bcrypt = require("bcrypt");
 const path = require("path");
-const axios = require("axios");
+
 const CryptoJS = require("crypto-js");
 const isEmailValid = require("../helper/emailValidation");
 const dateValidation = require("../helper/dateValidation");
 
 const secret_key = process.env.FRONTEND_SECRET_KEY;
+
 //=====================================================================
 
 const getUsers = async (req, res) => {
@@ -193,11 +194,9 @@ const handleUploadProcess = async (req, res) => {
 
         if (item.phone.toString().length !== 10) {
           return res.status(400).json({ error: "Invalid Phone Number" });
-        }
-        else if (dateValidation(givenDate, currentDate) === false) {
+        } else if (dateValidation(givenDate, currentDate) === false) {
           return res.status(400).json({ error: "Invalid Date" });
-        }
-        else {
+        } else {
           const newData = {
             id: item.id,
             name: item.name,
@@ -221,11 +220,9 @@ const handleUploadProcess = async (req, res) => {
           return res.status(400).json({ error: "Wrong Email Format" });
         } else if (item.phone.toString().length !== 10) {
           return res.status(400).json({ error: "Invalid Phone Number" });
-        }
-        else if (dateValidation(givenDate, currentDate) === false) {
+        } else if (dateValidation(givenDate, currentDate) === false) {
           return res.status(400).json({ error: "Invalid Date" });
-        }
-        else {
+        } else {
           const userData = {
             name: item.name || "",
             email: item.email || "",
