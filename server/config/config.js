@@ -6,7 +6,7 @@
 //   password: "123456",
 //   dialect: "mysql",
 // });
-
+//
 // module.exports = database;
 
 const Sequelize = require("sequelize");
@@ -21,7 +21,7 @@ const database = new Sequelize({
   username: "root",
   password: process.env.PASSWORD,
   dialect: "mysql",
-  PORT: 3306,
+  port: 3306,
 });
 
 module.exports = database;
