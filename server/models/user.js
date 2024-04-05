@@ -1,6 +1,10 @@
 const Sequelize = require("sequelize");
 const db = require("../config/config");
 
+const dotenv = require("dotenv");
+
+dotenv.config();
+
 db.sync()
   .then(() => {
     console.log("Database Connected");
