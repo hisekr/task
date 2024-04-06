@@ -2,9 +2,12 @@ import axios from "axios";
 
 export const downloadSample = async () => {
   try {
-    const res = await axios.get(`http://localhost:3000/sample`, {
-      responseType: "blob",
-    });
+    const res = await axios.get(
+      `https://task-backend-eguy.onrender.com/sample`,
+      {
+        responseType: "blob",
+      }
+    );
 
     const blob = new Blob([res.data], { type: res.headers["content-type"] });
 
